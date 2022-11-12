@@ -1,8 +1,51 @@
-.dialogs {
+.dialog {
+    position: relative;
+    height: 75px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    color: gray;
+    border: 1px solid rgb(82, 143, 42);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: white;
+    overflow: hidden;
+    cursor: pointer;
+}
+.dialogsItem {
+    display: flex;
+}
+.profileImage {
+    width: 40px;
+    height: 40px;
+    border: 1px solid gray;
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    flex: 1;
-    background-image: url('../../assets/img/bg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    justify-content: center;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.name {
+    margin-bottom: 5px; 
+    color: black;   
+}
+
+.shortText {
+    height: 37px;
+    width: 160px;
+    overflow-x: hidden;
+}
+.time {
+    font-size: 12px;
+    align-self: flex-start;
+}
+.time::before {
+    position: absolute;
+    content: url('../../assets/icons/check.svg');
+    bottom: 0;
+    right: 10px;
+
 }

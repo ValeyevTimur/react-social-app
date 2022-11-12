@@ -4,6 +4,20 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #1c1c1e;
-    margin-bottom: 2px;
+    background-color: #319c2d;
+    margin-bottom: 4px;
+    padding: 10px;
+    color: ghostwhite;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.image {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
 }
