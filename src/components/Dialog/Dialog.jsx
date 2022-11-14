@@ -1,18 +1,18 @@
-import React from "react";
-import classes from './Dialog.module.scss'
+import React, {createRef} from "react";
 
 
-const Dialog = ({dialogInfo}) => {
-    console.log(dialogInfo);
+const Dialog = ({state, addMessage}) => {
+    let newMessage = createRef()
+    let addNewMessage = () => {
+        addMessage(newMessage.current.value)
+    }
     return (
-        <div className={classes.dialog}>
-         {
-            dialogInfo.map((item, index) => (
-                <div>
-                    <div>{item.text}</div>
-                </div>
-            ))
-         }
+        <div>
+            {state.messages.map(message =>
+                <div>{message}</div>
+            )}
+            <textarea name="" id="" cols="30" rows="10" ref={newMessage} ></textarea>
+            <button onClick={() => addNewMessage()}>Send</button>
         </div>
     )
 }

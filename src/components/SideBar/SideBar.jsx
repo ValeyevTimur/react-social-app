@@ -2,12 +2,11 @@ import React from "react";
 import classes from  './SideBar.module.scss'
 import Dialogs from '../Dialogs'
 
-const SideBar = ({dialogData}) => {
-
+const SideBar = ({state}) => {
     return (
         <div className={classes.sidebar}>
             <nav className={classes.nav}>
-                <Dialogs dialogData = {dialogData} />
+                <Dialogs dialogData = {state.dialogData} />
             </nav>
         </div>
     )

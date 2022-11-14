@@ -13,17 +13,17 @@ import {Routes, Route} from "react-router-dom";
 import './App.scss';
 
 
-function App({state}) {
+function App({state, addMessage}) {
 
   return (
     <div className="App">
         <Header />
         <main>
-            <SideBar dialogData={state.dialogData}/>
+            <SideBar state={state}/>
             <Routes>
                 <Route exact path='/' element={<Content />}/>
                 <Route exact path='/profile' element={<Profile />}/>
-                <Route path={`/dialogs/:name/:id`} element={<Dialog dialogInfo={state.dialogInfo} />}/>
+                <Route path={`/dialogs/:name/:id`} element={<Dialog state={state} addMessage={addMessage} />}/>
             </Routes>
         </main>
         <Footer />

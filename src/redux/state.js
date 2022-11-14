@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 const state = {
     dialogData: [
         {'id': 1, 'name': 'Jack', 'shortText': 'Hello, watsuuup...' },
@@ -11,7 +13,13 @@ const state = {
         {'id': 2, 'name': 'Mike', 'text': 'Call me back please...sdfsdaggggggggggggggggggggggggggggggggggggggggggggggggggg' },
         {'id': 3, 'name': 'Sara', 'text': 'how are youdsdsdsdsdsdsdsdsdsdsdssdsdsd?...' },
         {'id': 4, 'name': 'Dave', 'text': 'could you check email please...asdasdddddddddddddddddddddddddddddd' },
-    ]
+    ],
+    messages: ['']
+}
+
+export let addMessage = (message) => {
+    state.messages.push(message)
+    rerenderEntireTree(state)
 }
 
 export default state
