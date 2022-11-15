@@ -14,11 +14,20 @@ const state = {
         {'id': 3, 'name': 'Sara', 'text': 'how are youdsdsdsdsdsdsdsdsdsdsdssdsdsd?...' },
         {'id': 4, 'name': 'Dave', 'text': 'could you check email please...asdasdddddddddddddddddddddddddddddd' },
     ],
-    messages: ['']
+    messages: [],
+    newTextMessage: ''
 }
 
-export let addMessage = (message) => {
-    state.messages.push(message)
+window.state = state
+
+export let addMessage = () => {
+    state.messages.push(state.newTextMessage)
+    state.newTextMessage = ''
+    rerenderEntireTree(state)
+}
+
+export let updateTextMessage = (text) => {
+    state.newTextMessage = text
     rerenderEntireTree(state)
 }
 

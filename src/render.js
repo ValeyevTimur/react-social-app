@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
-import {addMessage} from "./redux/state";
+import {addMessage, updateTextMessage} from "./redux/state";
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
 export let rerenderEntireTree = (state) => {
-    const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App state={state} addMessage={addMessage}/>
+                <App state={state} addMessage={addMessage} updateTextMessage={updateTextMessage}/>
             </BrowserRouter>
         </React.StrictMode>
     );

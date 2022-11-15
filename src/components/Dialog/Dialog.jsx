@@ -1,17 +1,27 @@
 import React, {createRef} from "react";
 
 
-const Dialog = ({state, addMessage}) => {
+const Dialog = ({state, addMessage, updateTextMessage}) => {
     let newMessage = createRef()
+
     let addNewMessage = () => {
-        addMessage(newMessage.current.value)
+        addMessage()
     }
+
+    let onChangeMessage = () => {
+        updateTextMessage(newMessage.current.value)
+    }
+
     return (
         <div>
             {state.messages.map(message =>
                 <div>{message}</div>
             )}
-            <textarea name="" id="" cols="30" rows="10" ref={newMessage} ></textarea>
+            <textarea
+                      ref={newMessage}
+                      value={state.newTextMessage}
+                      onChange={() => onChangeMessage()}
+            />
             <button onClick={() => addNewMessage()}>Send</button>
         </div>
     )

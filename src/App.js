@@ -13,7 +13,7 @@ import {Routes, Route} from "react-router-dom";
 import './App.scss';
 
 
-function App({state, addMessage}) {
+function App({state, addMessage, updateTextMessage}) {
 
   return (
     <div className="App">
@@ -23,7 +23,7 @@ function App({state, addMessage}) {
             <Routes>
                 <Route exact path='/' element={<Content />}/>
                 <Route exact path='/profile' element={<Profile />}/>
-                <Route path={`/dialogs/:name/:id`} element={<Dialog state={state} addMessage={addMessage} />}/>
+                <Route path={`/dialogs/:name/:id`} element={<Dialog state={state} addMessage={addMessage} updateTextMessage={updateTextMessage} />}/>
             </Routes>
         </main>
         <Footer />
