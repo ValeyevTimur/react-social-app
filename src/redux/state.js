@@ -1,4 +1,6 @@
-import {rerenderEntireTree} from "../render";
+let rerenderEntireTree = () => {
+
+}
 
 const state = {
     dialogData: [
@@ -20,15 +22,19 @@ const state = {
 
 window.state = state
 
-export let addMessage = () => {
+export const addMessage = () => {
     state.messages.push(state.newTextMessage)
     state.newTextMessage = ''
     rerenderEntireTree(state)
 }
 
-export let updateTextMessage = (text) => {
+export const updateTextMessage = (text) => {
     state.newTextMessage = text
     rerenderEntireTree(state)
 }
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer
+}
+
 
 export default state
