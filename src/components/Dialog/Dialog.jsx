@@ -1,5 +1,5 @@
 import React, {createRef} from "react";
-import {addMessageActionCreator, updateTextMessageActionCreator} from "../../redux/state";
+import {addMessageActionCreator, updateTextMessageActionCreator} from "../../redux/dialog-reducer";
 
 
 const Dialog = ({state, dispatch}) => {

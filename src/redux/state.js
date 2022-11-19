@@ -1,9 +1,6 @@
 import {dialogReducer} from "./dialog-reducer";
 
 
-const ADD_MESSAGE = 'ADD-MESSAGE'
-const UPDATE_TEXT_MESSAGE = 'UPDATE-TEXT-MESSAGE'
-
 let store = {
     _state: {
         dialogData: [
@@ -33,9 +30,6 @@ let store = {
         this._callSubscriber(this._state)
     }
 }
-
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
-export const updateTextMessageActionCreator = (text) => ({type: UPDATE_TEXT_MESSAGE, text})
 
 window.store = store
 export default store
