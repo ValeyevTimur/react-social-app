@@ -1,15 +1,15 @@
 import React, {createRef} from "react";
 
 
-const Dialog = ({state, addMessage, updateTextMessage}) => {
+const Dialog = ({state, dispatch}) => {
     let newMessage = createRef()
 
     let addNewMessage = () => {
-        addMessage()
+        dispatch({type: 'ADD-MESSAGE'})
     }
 
     let onChangeMessage = () => {
-        updateTextMessage(newMessage.current.value)
+        dispatch({type: 'UPDATE-TEXT-MESSAGE', text: newMessage.current.value})
     }
 
     return (
@@ -20,7 +20,7 @@ const Dialog = ({state, addMessage, updateTextMessage}) => {
             <textarea
                       ref={newMessage}
                       value={state.newTextMessage}
-                      onChange={() => onChangeMessage()}
+                      onChange={onChangeMessage}
             />
             <button onClick={() => addNewMessage()}>Send</button>
         </div>

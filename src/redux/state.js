@@ -19,17 +19,23 @@ let store = {
         return this._state
     },
     _callSubscriber () {},
-    addMessage () {
-        this._state.messages.push(this._state.newTextMessage)
-        this._state.newTextMessage = ''
-        this._callSubscriber(this._state)
-    },
-    updateTextMessage (text) {
-        this._state.newTextMessage = text
-        this._callSubscriber(this._state)
-    },
     subscribe (observer)  {
         this._callSubscriber = observer
+    },
+    dispatch (action) {
+        switch (true) {
+            case action.type === 'ADD-MESSAGE':
+                this._state.messages.push(this._state.newTextMessage)
+                this._state.newTextMessage = ''
+                this._callSubscriber(this._state)
+                break
+            case action.type === 'UPDATE-TEXT-MESSAGE':
+                this._state.newTextMessage = action.text
+                this._callSubscriber(this._state)
+                break
+            default:
+                break
+        }
     }
 }
 window.store = store
