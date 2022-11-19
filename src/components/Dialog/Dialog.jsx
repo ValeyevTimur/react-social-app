@@ -1,15 +1,17 @@
 import React, {createRef} from "react";
+import {addMessageActionCreator, updateTextMessageActionCreator} from "../../redux/state";
 
 
 const Dialog = ({state, dispatch}) => {
     let newMessage = createRef()
 
     let addNewMessage = () => {
-        dispatch({type: 'ADD-MESSAGE'})
+        dispatch(addMessageActionCreator())
     }
 
     let onChangeMessage = () => {
-        dispatch({type: 'UPDATE-TEXT-MESSAGE', text: newMessage.current.value})
+        let text = newMessage.current.value
+        dispatch(updateTextMessageActionCreator(text))
     }
 
     return (

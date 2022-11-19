@@ -1,3 +1,6 @@
+const ADD_MESSAGE = 'ADD-MESSAGE'
+const UPDATE_TEXT_MESSAGE = 'UPDATE-TEXT-MESSAGE'
+
 let store = {
     _state: {
         dialogData: [
@@ -24,12 +27,12 @@ let store = {
     },
     dispatch (action) {
         switch (true) {
-            case action.type === 'ADD-MESSAGE':
+            case action.type === ADD_MESSAGE:
                 this._state.messages.push(this._state.newTextMessage)
                 this._state.newTextMessage = ''
                 this._callSubscriber(this._state)
                 break
-            case action.type === 'UPDATE-TEXT-MESSAGE':
+            case action.type === UPDATE_TEXT_MESSAGE:
                 this._state.newTextMessage = action.text
                 this._callSubscriber(this._state)
                 break
@@ -38,5 +41,17 @@ let store = {
         }
     }
 }
+
+export const addMessageActionCreator = () => {
+    return {
+        type: ADD_MESSAGE
+    }
+}
+export const updateTextMessageActionCreator = (text) => {
+    return {
+        type: UPDATE_TEXT_MESSAGE, text
+    }
+}
+
 window.store = store
 export default store
