@@ -1,3 +1,6 @@
+import {dialogReducer} from "./dialog-reducer";
+
+
 const ADD_MESSAGE = 'ADD-MESSAGE'
 const UPDATE_TEXT_MESSAGE = 'UPDATE-TEXT-MESSAGE'
 
@@ -26,32 +29,13 @@ let store = {
         this._callSubscriber = observer
     },
     dispatch (action) {
-        switch (true) {
-            case action.type === ADD_MESSAGE:
-                this._state.messages.push(this._state.newTextMessage)
-                this._state.newTextMessage = ''
-                this._callSubscriber(this._state)
-                break
-            case action.type === UPDATE_TEXT_MESSAGE:
-                this._state.newTextMessage = action.text
-                this._callSubscriber(this._state)
-                break
-            default:
-                break
-        }
+        dialogReducer(this._state, action)
+        this._callSubscriber(this._state)
     }
 }
 
-export const addMessageActionCreator = () => {
-    return {
-        type: ADD_MESSAGE
-    }
-}
-export const updateTextMessageActionCreator = (text) => {
-    return {
-        type: UPDATE_TEXT_MESSAGE, text
-    }
-}
+export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
+export const updateTextMessageActionCreator = (text) => ({type: UPDATE_TEXT_MESSAGE, text})
 
 window.store = store
 export default store
