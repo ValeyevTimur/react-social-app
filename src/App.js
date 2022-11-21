@@ -14,7 +14,6 @@ import './App.scss';
 
 
 function App({state, dispatch}) {
-
   return (
     <div className="App">
         <Header />

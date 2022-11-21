@@ -6,7 +6,7 @@ const SideBar = ({state}) => {
     return (
         <div className={classes.sidebar}>
             <nav className={classes.nav}>
-                <Dialogs dialogData = {state.dialogData} />
+                <Dialogs dialogData = {state.dialogsPage.dialogData} />
             </nav>
         </div>
     )

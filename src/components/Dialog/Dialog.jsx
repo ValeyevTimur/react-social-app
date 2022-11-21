@@ -16,12 +16,12 @@ const Dialog = ({state, dispatch}) => {
 
     return (
         <div>
-            {state.messages.map(message =>
+            {state.dialogsPage.messages.map(message =>
                 <div>{message}</div>
             )}
             <textarea
                       ref={newMessage}
-                      value={state.newTextMessage}
+                      value={state.dialogsPage.newTextMessage}
                       onChange={onChangeMessage}
             />
             <button onClick={() => addNewMessage()}>Send</button>
