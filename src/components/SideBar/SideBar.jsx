@@ -2,7 +2,9 @@ import React from "react";
 import classes from  './SideBar.module.scss'
 import Dialogs from '../Dialogs'
 
-const SideBar = ({state}) => {
+const SideBar = ({ store }) => {
+    const state = store.getState()
+
     return (
         <div className={classes.sidebar}>
             <nav className={classes.nav}>

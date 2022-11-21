@@ -3,11 +3,12 @@ import classes from './Dialogs.module.scss'
 import { Link } from "react-router-dom";
 import profileSvg from '../../assets/icons/profile.svg'
 
-const Dialogs = ({dialogData}) => {
+const Dialogs = ({ dialogData }) => {
+
     return (
         <div className={classes.dialogs}>
         {dialogData.map((item, index) => (
-            <Link to={`/dialogs/${item.name}/${item.id}`}>
+            <Link to={`/dialog/${item.name}/${item.id}`}>
                 <div className={classes.dialog} key={index}>
                     <div className={classes.dialogsItem}>
                         <div className={classes.profileImage}>

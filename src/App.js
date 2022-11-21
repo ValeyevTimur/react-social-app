@@ -3,7 +3,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Profile from "./components/Profile";
 import SideBar from "./components/SideBar";
-import Dialog from './components/Dialog/';
 import Content from "./components/Content";
 
 // Libraries 
@@ -13,16 +12,16 @@ import {Routes, Route} from "react-router-dom";
 import './App.scss';
 
 
-function App({state, dispatch}) {
+function App({ store }) {
   return (
     <div className="App">
         <Header />
         <main>
-            <SideBar state={state}/>
+            <SideBar store={store}/>
             <Routes>
-                <Route exact path='/' element={<Content />}/>
+                <Route exact path='/' element={<Profile />}/>
                 <Route exact path='/profile' element={<Profile />}/>
-                <Route path={`/dialogs/:name/:id`} element={<Dialog state={state}  dispatch={dispatch}/>}/>
+                <Route path={`/dialog/:name/:id`} element={<Content store={store} />}/>
             </Routes>
         </main>
         <Footer />

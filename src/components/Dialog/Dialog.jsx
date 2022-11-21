@@ -1,17 +1,16 @@
 import React, {createRef} from "react";
-import {addMessageActionCreator, updateTextMessageActionCreator} from "../../redux/dialog-reducer";
 
 
-const Dialog = ({state, dispatch}) => {
+const Dialog = ({ state, addMessage, changeMessage }) => {
     let newMessage = createRef()
 
-    let addNewMessage = () => {
-        dispatch(addMessageActionCreator())
+    const addNewMessage = () => {
+        addMessage()
     }
 
-    let onChangeMessage = () => {
+    const onChangeMessage = () => {
         let text = newMessage.current.value
-        dispatch(updateTextMessageActionCreator(text))
+        changeMessage(text)
     }
 
     return (
