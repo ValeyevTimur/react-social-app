@@ -1,25 +1,27 @@
 import React from "react";
-import classes from './Content.module.scss'
 import Dialog from "../Dialog";
 import {addMessageActionCreator, updateTextMessageActionCreator} from "../../redux/dialog-reducer";
+import {connect} from "react-redux";
 
-const Content = ({ store }) => {
 
-    const state = store.getState()
-
-    const addMessage = () => {
-        store.dispatch(addMessageActionCreator())
+const mapStateToProps = (state) => {
+    return {
+        messages: state.dialogsPage.messages,
+        newTextMessage: state.dialogsPage.newTextMessage
     }
-
-    const changeMessage = (text) => {
-        store.dispatch(updateTextMessageActionCreator(text))
-    }
-
-    return (
-        <div className={classes.content}>
-            <Dialog state={state} addMessage={addMessage} changeMessage={changeMessage}/>
-        </div>
-    )
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addMessage: () => {
+            dispatch(addMessageActionCreator())
+        },
+        changeMessage: (text) => {
+            dispatch(updateTextMessageActionCreator(text))
+        }
+    }
+}
+
+const Content = connect(mapStateToProps, mapDispatchToProps)(Dialog)
 
 export default Content

@@ -12,16 +12,16 @@ import {Routes, Route} from "react-router-dom";
 import './App.scss';
 
 
-function App({ store }) {
+function App() {
   return (
     <div className="App">
         <Header />
         <main>
-            <SideBar store={store}/>
+            <SideBar />
             <Routes>
                 <Route exact path='/' element={<Profile />}/>
                 <Route exact path='/profile' element={<Profile />}/>
-                <Route path={`/dialog/:name/:id`} element={<Content store={store} />}/>
+                <Route path={`/dialog/:name/:id`} element={<Content />}/>
             </Routes>
         </main>
         <Footer />

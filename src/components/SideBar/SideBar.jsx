@@ -1,17 +1,16 @@
 import React from "react";
-import classes from  './SideBar.module.scss'
 import Dialogs from '../Dialogs'
+import {connect} from "react-redux";
 
-const SideBar = ({ store }) => {
-    const state = store.getState()
 
-    return (
-        <div className={classes.sidebar}>
-            <nav className={classes.nav}>
-                <Dialogs dialogData = {state.dialogsPage.dialogData} />
-            </nav>
-        </div>
-    )
+const mapStateToProps = (state) => {
+    return {
+        dialogData: state.dialogsPage.dialogData
+    }
 }
+
+const mapDispatchToProps = (dispatch) => { return {}}
+
+const SideBar = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
 
 export default SideBar
